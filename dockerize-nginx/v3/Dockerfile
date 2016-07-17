@@ -14,7 +14,8 @@ RUN apk add --no-cache nginx=${NGINX_VERSION}
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 
-RUN mv /var/lib/nginx/html/ /var/www/html
+RUN mkdir /var/www/html
+COPY index.html /var/www/html/index.html
 
 VOLUME /var/www/html
 WORKDIR /var/www/html
