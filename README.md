@@ -18,3 +18,10 @@ sudo wget https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}
 
 sudo chmod +x /usr/local/bin/docker-compose
 ```
+
+
+## Dockerfile and Dockerize
+
+1. Dockerfile: http://bit.ly/c-dockerfile
+2. Dockerize Best Practices: http://bit.ly/c-dockerize-best-practices
+
