@@ -13,7 +13,7 @@ sudo usermod -a -G docker `whoami`
 **Install docker-compose**
 
 ```sh
-COMPOSE_VERSION=1.7.1
+COMPOSE_VERSION=1.8.0
 sudo wget https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -O /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
@@ -24,4 +24,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 1. Dockerfile: http://bit.ly/c-dockerfile
 2. Dockerize Best Practices: http://bit.ly/c-dockerize-best-practices
+3. Docker Image Template: http://bit.ly/c-docker-image-template
 
