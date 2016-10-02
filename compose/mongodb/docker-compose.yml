@@ -1,0 +1,30 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# Default configure
+# username: coc
+# password: hello^^
+#
+# syntax: https://docs.docker.com/compose/yml/
+#
+
+version: "2"
+
+services:
+    mongodb:
+        image: mongo:3.2
+        ports:
+            - "27017:27017"
+        volumes:
+            - ./mongodb-data/:/data/db
+        # hostname: mongodb
+        # domainname: coclab.lan
+        cpu_shares: 512             # 0.5 CPU
+        #mem_limit: 536870912        # 512 MB RAM
+        #mem_limit: 1073741824        # 1024 MB RAM
+        mem_limit: 2073741824        # 1024 MB RAM
+        # privileged: true
+        # restart: always
+        # stdin_open: true
+        # tty: true
