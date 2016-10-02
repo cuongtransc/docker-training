@@ -1,0 +1,43 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# syntax: https://docs.docker.com/compose/yml/
+#
+
+version: "2"
+
+services:
+    mariadb:
+        image: mariadb:10.1
+        volumes:
+            - ./mariadb-data/:/var/lib/mysql/
+            - ./mariadb-init-data/:/docker-entrypoint-initdb.d/
+        #env_file:
+            #- ./docker-env
+        environment:
+            - MYSQL_ROOT_PASSWORD=lab@secret
+            - MYSQL_USER=lab
+            - MYSQL_PASSWORD=lab@123
+            - MYSQL_DATABASE=lab
+        ports:
+            - "3306:3306"
+        networks:
+            - back
+        hostname: mariadb
+        #domainname: coclab.com
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 1073741824       # 1024 MB RAM
+        # memswap_limit: 0            # 0 MB SWAP
+        # privileged: true
+        # restart: always
+        # stdin_open: true
+        tty: true
+
+#volumes:
+    #backend-data:
+    #mysql-data:
+
+networks:
+    #front:
+    back:
