@@ -10,11 +10,13 @@ wget -qO- https://get.docker.com/ | sh
 sudo usermod -a -G docker `whoami`
 ```
 
+After add user to `docker` group, please logout and then login to take effect.
+
 **Install docker-compose**
 
 ```sh
-COMPOSE_VERSION=1.8.0
-sudo wget https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -O /usr/local/bin/docker-compose
+COMPOSE_VERSION=1.8.1
+sudo wget https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -O /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
 ```
