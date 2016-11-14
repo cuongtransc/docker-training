@@ -10,6 +10,8 @@ services:
         ports:
             - "9200:9200"
             - "9300:9300"
+        networks:
+            - back
         volumes:
             #- ./config:/usr/share/elasticsearch/config
             - ./elasticsearch-data:/usr/share/elasticsearch/data
@@ -21,4 +23,7 @@ services:
         #restart: always
         #stdin_open: true
         tty: true
+
+networks:
+    back:
 
