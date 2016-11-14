@@ -1,0 +1,32 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+# Splash: https://hub.docker.com/r/scrapinghub/splash/
+#
+
+version: "2"
+
+services:
+    splash:
+        image: scrapinghub/splash:2.2
+        ports:
+            - "8050:8050"
+        networks:
+            - back
+        volumes:
+            - ./proxy-profiles/:/etc/splash/proxy-profiles
+        hostname: splash
+        domainname: coclab.lan
+        cpu_shares: 512
+        mem_limit: 536870912
+        # privileged: true
+        # restart: on-failure:3     # other choice: always
+        # stdin_open: true
+        # tty: true
+
+networks:
+    back:
+
