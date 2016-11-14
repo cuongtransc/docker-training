@@ -1,0 +1,33 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+
+version: "2"
+
+services:
+    nginx:
+        image: tranhuucuong91/nginx:1.7
+        ports:
+            - "80:80"
+            - "443:443"
+        networks:
+            - nginx-back
+        volumes:
+            - ./nginx-config/:/etc/nginx/
+        container_name: nginx
+        hostname: nginx
+        #domainname: coclab.lan
+        cpu_shares: 1024             # 1 CPU
+        mem_limit: 1073741824        # 1024 MB RAM
+        #privileged: true
+        restart: always
+        #stdin_open: true
+        tty: true
+
+networks:
+    nginx-back:
+        external: true
+
