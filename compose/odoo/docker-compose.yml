@@ -1,0 +1,69 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+# Odoo: https://github.com/odoo/docker
+#
+
+version: '2'
+
+services:
+    postgres:
+        image: postgres:9.4
+        environment:
+            - POSTGRES_USER=odoo
+            - POSTGRES_PASSWORD=odoo
+        networks:
+            - back
+        volumes:
+            - ./data/postgresql:/var/lib/postgresql/data
+        # container_name: odoo_postgres
+        hostname: postgres
+        domainname: coclab.lan
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 536870912        # 512 MB RAM
+        # cpuset: "0"
+        # privileged: true
+        # restart: on-failure:3     # other choice: always
+        restart: always
+        # stdin_open: true
+        # tty: true
+
+    odoo:
+        image: odoo:10
+        environment:
+            - DB_PORT_5432_TCP_ADDR=postgres
+            - DB_PORT_5432_TCP_PORT=5432
+            - POSTGRES_USER=odoo
+            - POSTGRES_PASSWORD=odoo
+        depends_on:
+            - postgres
+        ports:
+            - "8069:8069"
+        networks:
+            - back
+            #- nginx-back
+        volumes:
+            - ./data/odoo/config:/etc/odoo
+            - ./data/odoo/addons:/mnt/extra-addons
+            - ./data/odoo/filestore:/var/lib/odoo/filestore
+        ## command: -- --update=tutorial
+        # container_name: odoo_odoo
+        hostname: odoo
+        domainname: coclab.lan
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 1073741824
+        # cpuset: "0"
+        # privileged: true
+        # restart: on-failure:3     # other choice: always
+        restart: always
+        # stdin_open: true
+        tty: true
+
+networks:
+    back:
+    #nginx-back:
+        #external: true
+
