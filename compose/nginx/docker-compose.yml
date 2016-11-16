@@ -29,5 +29,5 @@ services:
 
 networks:
     nginx-back:
-        external: true
+        #external: true
 
