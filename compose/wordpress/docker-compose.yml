@@ -1,0 +1,68 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+# Wordpress: https://hub.docker.com/_/wordpress/
+#
+
+version: "2"
+
+services:
+    wordpress:
+        image: wordpress:4.6
+        depends_on:
+            - mariadb
+        environment:
+            - WORDPRESS_DB_HOST=mariadb
+            - WORDPRESS_DB_USER=wordpress
+            - WORDPRESS_DB_PASSWORD=wordpress@123
+            - WORDPRESS_DB_NAME=wordpress
+        ports:
+            - "80:80"
+        networks:
+            - back
+            #- nginx-back
+        volumes:
+            - ./wordpress-data/:/var/www/html/
+        hostname: wordpress
+        domainname: coclab.lan
+        cpu_shares: 512             # 0.5 CPU
+        #cpuset: "0"
+        mem_limit: 536870912        # 512 MB RAM
+        # privileged: true
+        # restart: on-failure:3     # other choice: always
+        # stdin_open: true
+        # tty: true
+
+    mariadb:
+        image: mariadb:10.1
+        environment:
+            - MYSQL_ROOT_PASSWORD=lab@secret
+            - MYSQL_USER=wordpress
+            - MYSQL_PASSWORD=wordpress@123
+            - MYSQL_DATABASE=wordpress
+        #ports:
+            #- "3306:3306"
+        networks:
+            - back
+        volumes:
+            - ./mariadb-data/:/var/lib/mysql/
+        hostname: mariadb
+        domainname: coclab.lan
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 536870912        # 512 MB RAM
+        # privileged: true
+        # restart: on-failure:3     # other choice: always
+        # stdin_open: true
+        # tty: true
+
+networks:
+    back:
+    #nginx-back:
+        #external: true
+
+# volumes:
+#     db-data:
+
