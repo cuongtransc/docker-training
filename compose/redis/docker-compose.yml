@@ -1,0 +1,33 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+# Redis: https://hub.docker.com/_/redis/
+#
+
+version: "2"
+
+services:
+    redis:
+        #image: redis:3.2
+        image: redis:3.2-alpine
+        ports:
+            - "6379:6379"
+        networks:
+            - back
+        volumes:
+            - ./redis-data/:/data/
+        hostname: redis
+        domainname: coclab.lan
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 536870912        # 512 MB RAM
+        #privileged: true
+        #restart: always
+        #stdin_open: true
+        #tty: true
+
+networks:
+    back:
+
