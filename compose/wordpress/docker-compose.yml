@@ -11,7 +11,7 @@ version: "2"
 
 services:
     wordpress:
-        image: wordpress:4.6
+        image: wordpress:4.7
         depends_on:
             - mariadb
         environment:
@@ -35,6 +35,11 @@ services:
         # restart: on-failure:3     # other choice: always
         # stdin_open: true
         # tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
 
     mariadb:
         image: mariadb:10.1
@@ -57,6 +62,11 @@ services:
         # restart: on-failure:3     # other choice: always
         # stdin_open: true
         # tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
 
 networks:
     back:
