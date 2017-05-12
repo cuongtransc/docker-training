@@ -5,7 +5,7 @@
 # Syntax: https://docs.docker.com/compose/compose-file/
 #
 
-version: "3"
+version: "2"
 
 services:
     portainer:
