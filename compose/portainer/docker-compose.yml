@@ -1,0 +1,38 @@
+#
+# Source code address
+# https://hub.docker.com/r/portainer/portainer/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+
+version: "3"
+
+services:
+    portainer:
+        image: portainer/portainer:linux-amd64
+        # command: --logo "https://www.docker.com/sites/all/themes/docker/assets/images/brand-full.svg"
+        #command: --external-endpoints /portainer_config/endpoints.json
+        ports:
+            - "9000:9000"
+        networks:
+            - comp_default
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./portainer_data/:/data
+        hostname: portainer
+        domainname: coclab.lan
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 536870912        # 512 MB RAM
+        # privileged: true
+        # restart: always           # other choice: on-failure:3
+        # stdin_open: true
+        # tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+networks:
+    comp_default:
+        external: true
