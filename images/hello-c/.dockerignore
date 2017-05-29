@@ -5,3 +5,5 @@
 venv/
 .venv/
 .idea/
+
+dockerize-multi-stage.png

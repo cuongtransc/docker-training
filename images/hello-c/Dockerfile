@@ -7,7 +7,7 @@
 #--------------------------------------
 # Stage: Compile Apps
 #--------------------------------------
-FROM ubuntu:16.04
+FROM bitnami/minideb:jessie
 MAINTAINER Cuong Tran "tranhuucuong91@gmail.com"
 
 ENV REFRESHED_AT 2017-05-01
@@ -27,7 +27,7 @@ RUN gcc hello.c -o hello
 #--------------------------------------
 # Stage: Packaging Apps
 #--------------------------------------
-FROM bitnami/minideb
+FROM bitnami/minideb:jessie
 
 COPY --from=0 /hello /hello
 
