@@ -1,11 +1,11 @@
 # Author: Cuong Tran
 #
-# Build: docker build -t tranhuucuong91/app:0.1 .
-# Run: docker run -d -p 8080:8080 --name app-run tranhuucuong91/app:0.1
+# Build: docker build -t test/hello-c:0.1 .
+# Run: docker run --rm test/hello-c:0.1
 #
 
 #--------------------------------------
-# Stage: Compile Apps
+# Stage 1: Compile Apps
 #--------------------------------------
 FROM bitnami/minideb:jessie
 MAINTAINER Cuong Tran "tranhuucuong91@gmail.com"
@@ -25,7 +25,7 @@ RUN gcc hello.c -o hello
 
 
 #--------------------------------------
-# Stage: Packaging Apps
+# Stage 2: Packaging Apps
 #--------------------------------------
 FROM bitnami/minideb:jessie
 
