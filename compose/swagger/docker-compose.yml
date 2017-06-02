@@ -1,0 +1,42 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+# Source: https://github.com/tranhuucuong91/swagger-ui
+#
+
+version: "2"
+
+services:
+    swagger-ui:
+        image: tranhuucuong91/swagger-ui:2.2.10
+        ports:
+            - "8080:8080"
+        networks:
+            - comp_default
+        volumes:
+            - ./swagger-data/swagger.json:/usr/share/nginx/html/swagger.json
+        environment:
+            - SWAGGER_JSON=/usr/share/nginx/html/swagger.json
+            - VALIDATOR_URL=null
+            # - API_URL=
+        hostname: swagger-ui
+        domainname: coclab.lan
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 536870912        # 512 MB RAM
+        # privileged: true
+        # restart: always           # other choice: on-failure:3
+        # stdin_open: true
+        # tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+networks:
+    comp_default:
+        external: true
+
