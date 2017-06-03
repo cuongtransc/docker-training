@@ -19,9 +19,8 @@ services:
         volumes:
             - ./swagger-data/swagger.json:/usr/share/nginx/html/swagger.json
         environment:
-            - SWAGGER_JSON=/usr/share/nginx/html/swagger.json
             - VALIDATOR_URL=null
-            # - API_URL=
+            # - HTPASSWD=
         hostname: swagger-ui
         domainname: coclab.lan
         cpu_shares: 512             # 0.5 CPU
