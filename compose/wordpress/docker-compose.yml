@@ -1,6 +1,6 @@
 #
 # Source code address
-# https://hub.docker.com/u/tranhuucuong91/
+# https://hub.docker.com/u/cuongtransc/
 #
 # Syntax: https://docs.docker.com/compose/compose-file/
 #
@@ -11,7 +11,7 @@ version: "2"
 
 services:
     wordpress:
-        image: wordpress:4.7
+        image: cuongtransc/wordpress:4.8
         depends_on:
             - mariadb
         environment:
@@ -19,6 +19,7 @@ services:
             - WORDPRESS_DB_USER=wordpress
             - WORDPRESS_DB_PASSWORD=wordpress@123
             - WORDPRESS_DB_NAME=wordpress
+            - WWW_DATA_USERID=1000
         ports:
             - "80:80"
         networks:
