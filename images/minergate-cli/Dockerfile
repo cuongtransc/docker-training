@@ -1,11 +1,11 @@
 # Author: Cuong Tran
 #
-# Build: docker build -t tranhuucuong91/minergate-cli:0.1 .
-# Run: docker run -d tranhuucuong91/minergate-cli:0.1
+# Build: docker build -t cuongtransc/minergate-cli:0.1 .
+# Run: docker run -d cuongtransc/minergate-cli:0.1
 #
 
 FROM bitnami/minideb:jessie
-MAINTAINER Cuong Tran "tranhuucuong91@gmail.com"
+MAINTAINER Cuong Tran "cuongtransc@gmail.com"
 
 ENV REFRESHED_AT 2017-06-01
 

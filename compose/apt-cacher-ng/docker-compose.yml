@@ -9,7 +9,7 @@ version: "2"
 
 services:
     aptcacherng:
-        image: tranhuucuong91/apt-cacher-ng:0.7
+        image: cuongtransc/apt-cacher-ng:0.7
         ports:
             - "3142:3142"
         networks:

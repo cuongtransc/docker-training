@@ -1,17 +1,17 @@
 #
 # Source code address
-# https://hub.docker.com/u/tranhuucuong91/
+# https://hub.docker.com/u/cuongtransc/
 #
 # Syntax: https://docs.docker.com/compose/compose-file/
 #
-# Source: https://github.com/tranhuucuong91/swagger-ui
+# Source: https://github.com/cuongtransc/swagger-ui
 #
 
 version: "2"
 
 services:
     swagger-ui:
-        image: tranhuucuong91/swagger-ui:2.2.10
+        image: cuongtransc/swagger-ui:2.2.10
         ports:
             - "8080:8080"
         networks:

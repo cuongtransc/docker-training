@@ -8,7 +8,7 @@
 # Stage 1: Compile Apps
 #--------------------------------------
 FROM bitnami/minideb:jessie
-MAINTAINER Cuong Tran "tranhuucuong91@gmail.com"
+MAINTAINER Cuong Tran "cuongtransc@gmail.com"
 
 ENV REFRESHED_AT 2017-05-01
 

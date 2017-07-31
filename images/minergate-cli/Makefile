@@ -1,6 +1,6 @@
 PRIVATE_REGISTRY_URL=ro.lan:5000
 
-DOCKER_IMAGE=tranhuucuong91/minergate-cli
+DOCKER_IMAGE=cuongtransc/minergate-cli
 VERSION=0.1
 
 all: build

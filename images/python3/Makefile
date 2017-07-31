@@ -1,6 +1,6 @@
 PRIVATE_REGISTRY_URL=ro.lan:5000
 
-DOCKER_IMAGE=tranhuucuong91/python
+DOCKER_IMAGE=cuongtransc/python
 VERSION=3.5
 
 all: build

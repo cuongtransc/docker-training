@@ -5,7 +5,7 @@
 #
 
 FROM alpine:3.4
-MAINTAINER Cuong Tran "tranhuucuong91@gmail.com"
+MAINTAINER Cuong Tran "cuongtransc@gmail.com"
 
 ENV NGINX_VERSION 1.10.1-r1
 

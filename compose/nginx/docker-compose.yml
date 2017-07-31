@@ -1,6 +1,6 @@
 #
 # Source code address
-# https://hub.docker.com/u/tranhuucuong91/
+# https://hub.docker.com/u/cuongtransc/
 #
 # Syntax: https://docs.docker.com/compose/compose-file/
 #
@@ -9,7 +9,7 @@ version: "2"
 
 services:
     nginx:
-        image: tranhuucuong91/nginx:1.7
+        image: cuongtransc/nginx:1.7
         ports:
             - "80:80"
             - "443:443"
