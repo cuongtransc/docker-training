@@ -95,7 +95,7 @@ docker images | awk '/^<none>/ {print $3}' | xargs -r docker rmi
 
 
 # remove old version images
-docker images | grep registry.olbius.lan:5001/tranhuucuong91/olbius-pos | tail -n +4 | awk '{print $3}' | xargs -r docker rmi
+docker images | grep registry.olbius.lan:5001/cuongtransc/olbius-pos | tail -n +4 | awk '{print $3}' | xargs -r docker rmi
 ```
 
 <= sẽ có lỗi khi remove image_id được gắn nhiều tag
@@ -104,7 +104,7 @@ docker images | grep registry.olbius.lan:5001/tranhuucuong91/olbius-pos | tail -
 -> thêm -f là xong (force)
 
 ```
-docker images | grep ro.lan:5001/tranhuucuong91/mail | tail -n +4 | awk '{print $3}' | xargs -r docker rmi -f
+docker images | grep ro.lan:5001/cuongtransc/mail | tail -n +4 | awk '{print $3}' | xargs -r docker rmi -f
 ```
 
 
@@ -227,7 +227,7 @@ stress -c 1
 cpu quota
 
 
-docker run -it --rm --cpuset-cpus 0-3 tranhuucuong91/stress:0.1 stress -c `nproc`
+docker run -it --rm --cpuset-cpus 0-3 cuongtransc/stress:0.1 stress -c `nproc`
 
 
 
@@ -541,7 +541,7 @@ http://127.0.0.1:8080
 docker swarm init
 
 
-docker run -it --rm -p 80:80 tranhuucuong91/nginx:1.10.3
+docker run -it --rm -p 80:80 cuongtransc/nginx:1.10.3
 ```
 
 

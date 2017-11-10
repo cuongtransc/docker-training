@@ -185,7 +185,7 @@ docker service create \
     --name tnginx \
     --publish 81:80 \
     --constraint 'node.hostname == n01' \
-    tranhuucuong91/nginx:alpine-test
+    cuongtransc/nginx:alpine-test
 
 
 # Scale service
@@ -251,7 +251,7 @@ docker service create \
     --name tnginx \
     --publish 80:80 \
     --network test_overlay \
-    tranhuucuong91/nginx:alpine-test
+    cuongtransc/nginx:alpine-test
 
 
 docker service create \

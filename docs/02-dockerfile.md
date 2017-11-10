@@ -62,7 +62,7 @@ Lợi ích:
 - Chỉ đóng gói chương trình đã được biên dịch, không lấy các thư viện biên dịch -> Giảm kích thước image.
 
 Ví dụ:
-https://github.com/tranhuucuong91/docker-training/blob/master/images/hello-c/Dockerfile
+https://github.com/cuongtransc/docker-training/blob/master/images/hello-c/Dockerfile
 
 Full post: http://pliutau.com/multi-stage-dockerfile-for-golang-application/
 
