@@ -20,9 +20,8 @@ services:
             - ./mongodb-data/:/data/db
         # hostname: mongodb
         # domainname: coclab.lan
-        cpu_shares: 512             # 0.5 CPU
-        #mem_limit: 536870912        # 512 MB RAM
-        mem_limit: 2073741824
+        cpu_shares: 512
+        mem_limit: 1G
         # privileged: true
         # restart: always
         # stdin_open: true

@@ -29,9 +29,9 @@ services:
             - ./wordpress-data/:/var/www/html/
         hostname: wordpress
         domainname: coclab.lan
-        cpu_shares: 512             # 0.5 CPU
+        cpu_shares: 512
         #cpuset: "0"
-        mem_limit: 536870912        # 512 MB RAM
+        mem_limit: 512M
         # privileged: true
         # restart: on-failure:3     # other choice: always
         # stdin_open: true
@@ -57,8 +57,8 @@ services:
             - ./mariadb-data/:/var/lib/mysql/
         hostname: mariadb
         domainname: coclab.lan
-        cpu_shares: 512             # 0.5 CPU
-        mem_limit: 536870912        # 512 MB RAM
+        cpu_shares: 512
+        mem_limit: 512M
         # privileged: true
         # restart: on-failure:3     # other choice: always
         # stdin_open: true

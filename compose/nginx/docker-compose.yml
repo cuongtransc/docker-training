@@ -20,8 +20,8 @@ services:
         container_name: nginx
         hostname: nginx
         #domainname: coclab.lan
-        cpu_shares: 1024             # 1 CPU
-        mem_limit: 1073741824        # 1024 MB RAM
+        cpu_shares: 1024
+        mem_limit: 512M
         #privileged: true
         restart: always
         #stdin_open: true

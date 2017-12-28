@@ -21,7 +21,7 @@ services:
         hostname: splash
         domainname: coclab.lan
         cpu_shares: 512
-        mem_limit: 536870912
+        mem_limit: 512M
         # privileged: true
         # restart: on-failure:3     # other choice: always
         # stdin_open: true

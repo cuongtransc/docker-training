@@ -21,8 +21,8 @@ services:
             - ./portainer_data/:/data
         hostname: portainer
         domainname: coclab.lan
-        cpu_shares: 512             # 0.5 CPU
-        mem_limit: 536870912        # 512 MB RAM
+        cpu_shares: 512
+        mem_limit: 512M
         # privileged: true
         # restart: always           # other choice: on-failure:3
         # stdin_open: true

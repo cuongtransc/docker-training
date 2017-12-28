@@ -26,8 +26,8 @@ services:
             - back
         hostname: mariadb
         #domainname: coclab.com
-        cpu_shares: 512             # 0.5 CPU
-        mem_limit: 1073741824       # 1024 MB RAM
+        cpu_shares: 512
+        mem_limit: 512M
         # memswap_limit: 0            # 0 MB SWAP
         # privileged: true
         # restart: always

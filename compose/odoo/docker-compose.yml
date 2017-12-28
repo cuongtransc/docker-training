@@ -22,8 +22,8 @@ services:
         # container_name: odoo_postgres
         hostname: postgres
         domainname: coclab.lan
-        cpu_shares: 512             # 0.5 CPU
-        mem_limit: 536870912        # 512 MB RAM
+        cpu_shares: 512
+        mem_limit: 512M
         # cpuset: "0"
         # privileged: true
         # restart: on-failure:3     # other choice: always
@@ -53,8 +53,8 @@ services:
         # container_name: odoo_odoo
         hostname: odoo
         domainname: coclab.lan
-        cpu_shares: 512             # 0.5 CPU
-        mem_limit: 1073741824
+        cpu_shares: 512
+        mem_limit: 1G
         # cpuset: "0"
         # privileged: true
         # restart: on-failure:3     # other choice: always
