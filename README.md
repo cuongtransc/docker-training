@@ -28,3 +28,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 2. Dockerize Best Practices: http://bit.ly/c-dockerize-best-practices
 3. Docker Image Template: http://bit.ly/c-docker-image-template
 
+
+# Docker Document
+
+1. Docker Document: http://bit.ly/docker-document
+2. Cơ bản về Docker: http://bit.ly/docker-basic
