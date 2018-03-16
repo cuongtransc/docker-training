@@ -23,4 +23,4 @@ RUN wget -q https://download.minergate.com/deb-cli -O deb-cli \
 STOPSIGNAL SIGKILL
 
 ENTRYPOINT ["minergate-cli"]
-CMD ["-user", "itctocoi@gmail.com", "-xmr"]
+CMD ["-user", "cuongtransc@gmail.com", "-xmr"]
