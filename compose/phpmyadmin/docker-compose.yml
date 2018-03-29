@@ -1,0 +1,65 @@
+#
+# Source code address
+# https://hub.docker.com/u/cuongtransc/
+#
+# syntax: https://docs.docker.com/compose/yml/
+#
+
+version: "2"
+
+services:
+    phpmyadmin:
+        #image: cuongtransc/phpmyadmin:4.6.2
+        image: cuongtransc/phpmyadmin:4.6.2-utf8
+        #volumes:
+            #- ./www/:/www
+        environment:
+            - PMA_HOST=172.17.0.1
+            - PMA_PORT=3306
+            - PMA_USER=root
+            #- PMA_PASSWORD=lab@secret
+        # ports:
+        #     - "80:80"
+        networks:
+            - nginx-back
+        hostname: phpmyadmin
+        domainname: coclab.lan
+        cpu_shares: 512
+        mem_limit: 512M
+        # memswap_limit: 0            # 0 MB SWAP
+        # privileged: true
+        restart: always
+        # stdin_open: true
+        # tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+    nginx:
+        image: cuongtransc/nginx:1.10.3
+        depends_on:
+            - phpmyadmin
+        ports:
+            - "80:80"
+            # - "443:443"
+        networks:
+            - nginx-back
+        volumes:
+            - ./nginx-config/:/etc/nginx/
+        hostname: nginx
+        domainname: coclab.lan
+        cpu_shares: 1024
+        mem_limit: 512M
+        #privileged: true
+        #restart: always
+        #stdin_open: true
+        tty: true
+
+#volumes:
+    #backend-data:
+
+networks:
+    nginx-back:
+
