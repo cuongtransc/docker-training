@@ -9,7 +9,7 @@ version: "2"
 
 services:
     mariadb:
-        image: mariadb:10.1
+        image: mariadb:10.2
         volumes:
             - ./mariadb-data/:/var/lib/mysql/
             - ./mariadb-init-data/:/docker-entrypoint-initdb.d/
