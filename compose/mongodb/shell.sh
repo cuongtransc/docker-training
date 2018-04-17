@@ -2,6 +2,9 @@
 
 CONTAINER_NAME=mongodb_mongodb_1
 
+COLUMNS=129
+LINES=35
+
 # check container exists
 docker ps -a | awk '{print $NF}' | grep ${CONTAINER_NAME} &>/dev/null
 
@@ -17,5 +20,7 @@ else
         docker start ${CONTAINER_NAME}
     fi
 
-    docker exec -it ${CONTAINER_NAME} bash
+    #docker exec -it ${CONTAINER_NAME} sh -c "stty cols $COLUMNS rows $LINES && sh";
+    docker exec -it ${CONTAINER_NAME} bash -c "stty cols $COLUMNS rows $LINES && bash";
 fi
+
