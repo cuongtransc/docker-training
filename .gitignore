@@ -1,2 +1,6 @@
 # Ingore docker compose data
 *-data/
+
+# Ignore docker-compose override
+docker-compose.override.yml
+
