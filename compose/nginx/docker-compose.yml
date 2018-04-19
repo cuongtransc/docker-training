@@ -23,7 +23,7 @@ services:
         cpu_shares: 1024
         mem_limit: 512M
         #privileged: true
-        restart: always
+        #restart: always
         #stdin_open: true
         tty: true
         logging:
