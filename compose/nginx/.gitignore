@@ -1,0 +1,3 @@
+# Ignore nginx ssl key
+nginx-config/certs/dhparam.pem
+

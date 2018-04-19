@@ -9,7 +9,7 @@ version: "2"
 
 services:
     nginx:
-        image: cuongtransc/nginx:1.7
+        image: cuongtransc/nginx:1.10.3
         ports:
             - "80:80"
             - "443:443"
@@ -26,6 +26,11 @@ services:
         restart: always
         #stdin_open: true
         tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
 
 networks:
     nginx-back:
