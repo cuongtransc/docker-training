@@ -15,7 +15,7 @@ services:
         volumes:
             - ./pureftpd-config/:/etc/pure-ftpd
             #- ./data/ftpuser:/home/ftpuser
-            - ../data-sync/:/home/ftpuser/coc/data-sync
+            - ./data-sync/:/home/ftpuser/coc/data-sync
         network_mode: "host"
         #ports:
             #- "80:80"
