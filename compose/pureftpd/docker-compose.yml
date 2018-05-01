@@ -1,0 +1,44 @@
+#
+# Source code address
+# https://hub.docker.com/u/cuongtransc/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+
+version: "2"
+
+services:
+    pureftpd:
+        image: vimagick/pure-ftpd
+        ports:
+            - "21:21"
+        volumes:
+            - ./pureftpd-config/:/etc/pure-ftpd
+            #- ./data/ftpuser:/home/ftpuser
+            - ../data-sync/:/home/ftpuser/coc/data-sync
+        network_mode: "host"
+        #ports:
+            #- "80:80"
+        #networks:
+            #- back
+        #hostname: ftpd
+        #domainname: coclab.lan
+        #cpu_shares: 512
+        #mem_limit: 512M
+        privileged: true
+        #restart: always           # other choice: on-failure:3
+        # stdin_open: true
+        # tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+#networks:
+    #back:
+    ##nginx-back:
+        ##external: true
+
+## volumes:
+##     db-data:
+
