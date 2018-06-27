@@ -5,6 +5,8 @@ CONTAINER_NAME=app_app_1
 COLUMNS=129
 LINES=35
 
+SHELL=zsh
+
 # check container exists
 docker ps -a | awk '{print $NF}' | grep ${CONTAINER_NAME} &>/dev/null
 
@@ -20,7 +22,6 @@ else
         docker start ${CONTAINER_NAME}
     fi
 
-    #docker exec -it ${CONTAINER_NAME} sh -c "stty cols $COLUMNS rows $LINES && sh";
-    docker exec -it ${CONTAINER_NAME} bash -c "stty cols $COLUMNS rows $LINES && bash";
+    docker exec -it ${CONTAINER_NAME} ${SHELL} -c "stty cols $COLUMNS rows $LINES && ${SHELL}";
 fi
 
