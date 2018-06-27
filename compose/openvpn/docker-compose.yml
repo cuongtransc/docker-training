@@ -1,0 +1,42 @@
+#
+# Source code address
+# https://hub.docker.com/u/cuongtransc/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+# Source: https://hub.docker.com/r/kylemanna/openvpn/
+#
+
+version: "2"
+
+services:
+    openvpn:
+        image: kylemanna/openvpn
+        ports:
+            - "1194:1194/udp"
+        networks:
+            - back
+        cap_add:
+            - NET_ADMIN
+        volumes:
+            - ./openvpn-data/:/etc/openvpn
+        hostname: openvpn
+        domainname: coclab.lan
+        cpu_shares: 512
+        mem_limit: 512M
+        # privileged: true
+        # restart: always           # other choice: on-failure:3
+        # stdin_open: true
+        # tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+networks:
+    back:
+
+# volumes:
+#     db-data:
+
