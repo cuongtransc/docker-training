@@ -2,6 +2,11 @@
 
 CONTAINER_NAME=elasticsearch_elasticsearch_1
 
+COLUMNS=129
+LINES=35
+
+SHELL=bash
+
 # check container exists
 docker ps -a | awk '{print $NF}' | grep ${CONTAINER_NAME} &>/dev/null
 
@@ -17,5 +22,6 @@ else
         docker start ${CONTAINER_NAME}
     fi
 
-    docker exec -it ${CONTAINER_NAME} bash
+    docker exec -it ${CONTAINER_NAME} ${SHELL} -c "stty cols $COLUMNS rows $LINES && ${SHELL}";
 fi
+
