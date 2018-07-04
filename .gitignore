@@ -4,3 +4,6 @@
 # Ignore docker-compose override
 docker-compose.override.yml
 
+# Ignore tmp
+tmp/
+
