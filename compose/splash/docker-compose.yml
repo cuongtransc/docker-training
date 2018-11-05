@@ -19,7 +19,7 @@ services:
         volumes:
             - ./proxy-profiles/:/etc/splash/proxy-profiles
         hostname: splash
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 512M
         # privileged: true

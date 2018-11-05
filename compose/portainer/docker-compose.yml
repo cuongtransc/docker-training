@@ -20,7 +20,7 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
             - ./portainer_data/:/data
         hostname: portainer
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 512M
         # privileged: true

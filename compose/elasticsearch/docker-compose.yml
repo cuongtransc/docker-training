@@ -16,7 +16,7 @@ services:
             #- ./config:/usr/share/elasticsearch/config
             - ./elasticsearch-data:/usr/share/elasticsearch/data
         hostname: elasticsearch
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 1024
         mem_limit: 4G
         #privileged: true

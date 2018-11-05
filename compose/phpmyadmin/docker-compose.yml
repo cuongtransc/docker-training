@@ -23,7 +23,7 @@ services:
         networks:
             - nginx-back
         hostname: phpmyadmin
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 512M
         # memswap_limit: 0            # 0 MB SWAP
@@ -49,7 +49,7 @@ services:
         volumes:
             - ./nginx-config/:/etc/nginx/
         hostname: nginx
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 1024
         mem_limit: 512M
         #privileged: true

@@ -21,7 +21,7 @@ services:
             - ./data/postgresql:/var/lib/postgresql/data
         # container_name: odoo_postgres
         hostname: postgres
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 512M
         # cpuset: "0"
@@ -52,7 +52,7 @@ services:
         ## command: -- --update=tutorial
         # container_name: odoo_odoo
         hostname: odoo
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 1G
         # cpuset: "0"

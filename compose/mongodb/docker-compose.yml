@@ -19,7 +19,7 @@ services:
         volumes:
             - ./mongodb-data/:/data/db
         # hostname: mongodb
-        # domainname: coclab.lan
+        # domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 1G
         # privileged: true

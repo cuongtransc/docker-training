@@ -21,7 +21,7 @@ services:
         volumes:
             - ./openvpn-data/:/etc/openvpn
         hostname: openvpn
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 512M
         # privileged: true

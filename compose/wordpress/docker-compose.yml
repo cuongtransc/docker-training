@@ -28,7 +28,7 @@ services:
         volumes:
             - ./wordpress-data/:/var/www/html/
         hostname: wordpress
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         #cpuset: "0"
         mem_limit: 512M
@@ -56,7 +56,7 @@ services:
         volumes:
             - ./mariadb-data/:/var/lib/mysql/
         hostname: mariadb
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 512M
         # privileged: true

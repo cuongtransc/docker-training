@@ -11,15 +11,19 @@ version: "2"
 
 services:
     redis:
-        image: redis:4-alpine
+        #image: redis:4-alpine
+        image: bitnami/redis:4.0
+        environment:
+            - REDIS_PASSWORD=lab@123
         ports:
             - "6379:6379"
         networks:
-            - back
+            #- back
+            - comp_default
         volumes:
             - ./redis-data/:/data/
         hostname: redis
-        domainname: coclab.lan
+        domainname: devopsz.com
         cpu_shares: 512
         mem_limit: 512M
         #privileged: true
@@ -28,5 +32,7 @@ services:
         #tty: true
 
 networks:
-    back:
+    #back:
+    comp_default:
+        external: true
 
