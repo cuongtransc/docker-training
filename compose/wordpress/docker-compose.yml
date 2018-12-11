@@ -6,6 +6,8 @@
 #
 # Wordpress: https://hub.docker.com/_/wordpress/
 #
+# Dockerfile: https://github.com/cuongtransc/docker-training/blob/master/images/wordpress/Dockerfile
+#
 
 version: "2"
 
