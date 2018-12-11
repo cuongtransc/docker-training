@@ -54,7 +54,7 @@ services:
         networks:
             - back
         volumes:
-            - ./mariadb-data/:/var/lib/mysql/
+            - mariadb-data:/var/lib/mysql/
         hostname: mariadb
         domainname: devopsz.com
         cpu_shares: 512
@@ -74,6 +74,6 @@ networks:
     #nginx-back:
         #external: true
 
-# volumes:
-#     db-data:
+volumes:
+    mariadb-data:
 
