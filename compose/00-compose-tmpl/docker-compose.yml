@@ -4,13 +4,42 @@
 #
 # Syntax: https://docs.docker.com/compose/compose-file/
 #
-# Source: https://hub.docker.com/_/wordpress/
-#
 
-version: "2"
+version: "2.4"
+
+x-default: &default
+    networks:
+        - comp_default
+    cpu_shares: 512
+    mem_limit: 100M
+    # memswap_limit: 0           # 0 MB SWAP
+    # privileged: true
+    restart: always
+    # stdin_open: true
+    # tty: true
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "100M"
+            max-file: "3"
 
 services:
+    mariadb:
+        << : *default
+        image: mariadb:10.1
+        environment:
+            - MYSQL_ROOT_PASSWORD=lab@secret
+            - MYSQL_USER=wordpress
+            - MYSQL_PASSWORD=wordpress@123
+            - MYSQL_DATABASE=wordpress
+        #ports:
+            #- "3306:3306"
+        volumes:
+            - ./mariadb-data/:/var/lib/mysql/
+        hostname: mariadb
+
     wordpress:
+        << : *default
         image: wordpress:4.6
         depends_on:
             - mariadb
@@ -21,54 +50,11 @@ services:
             - WORDPRESS_DB_NAME=wordpress
         ports:
             - "80:80"
-        networks:
-            - back
         hostname: wordpress
-        domainname: coclab.lan
-        cpu_shares: 512
-        mem_limit: 512M
-        # privileged: true
-        # restart: always           # other choice: on-failure:3
-        # stdin_open: true
-        # tty: true
-        logging:
-            driver: "json-file"
-            options:
-                max-size: "100M"
-                max-file: "3"
-
-    mariadb:
-        image: mariadb:10.1
-        environment:
-            - MYSQL_ROOT_PASSWORD=lab@secret
-            - MYSQL_USER=wordpress
-            - MYSQL_PASSWORD=wordpress@123
-            - MYSQL_DATABASE=wordpress
-        #ports:
-            #- "3306:3306"
-        networks:
-            - back
-        volumes:
-            - ./mariadb-data/:/var/lib/mysql/
-        hostname: mariadb
-        domainname: coclab.lan
-        cpu_shares: 512
-        mem_limit: 512M
-        # privileged: true
-        # restart: always           # other choice: on-failure:3
-        # stdin_open: true
-        # tty: true
-        logging:
-            driver: "json-file"
-            options:
-                max-size: "100M"
-                max-file: "3"
 
 networks:
-    back:
-    #nginx-back:
-        #external: true
+    comp_default:
+        external: true
 
 # volumes:
 #     db-data:
-

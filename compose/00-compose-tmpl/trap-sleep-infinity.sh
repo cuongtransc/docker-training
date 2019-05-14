@@ -13,7 +13,8 @@ if true; then
 
     trap _term SIGHUP SIGINT SIGTERM SIGQUIT
 
-    sleep infinity &
+    # sleep infinity &
+    while true; do sleep 86400; done &
     child=$!
     wait "$child"
 fi
