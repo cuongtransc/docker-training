@@ -14,7 +14,7 @@ x-default: &default
     mem_limit: 100M
     # memswap_limit: 0           # 0 MB SWAP
     # privileged: true
-    restart: always
+    # restart: always
     # stdin_open: true
     # tty: true
     logging:
