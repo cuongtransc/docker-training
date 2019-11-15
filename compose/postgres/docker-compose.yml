@@ -1,0 +1,43 @@
+#
+# Source code address
+# https://hub.docker.com/u/cuongtransc/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+
+version: "2.4"
+
+x-default: &default
+    networks:
+        - comp_default
+    cpu_shares: 512
+    mem_limit: 100M
+    # memswap_limit: 0           # 0 MB SWAP
+    # privileged: true
+    # restart: always
+    # stdin_open: true
+    # tty: true
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "100M"
+            max-file: "3"
+
+services:
+    postgres:
+        << : *default
+        image: postgres:10.5
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./postgres-data/:/var/lib/postgresql/data/
+            # - ./postgres-init-data/:/docker-entrypoint-initdb.d/
+        environment:
+            - POSTGRES_USER=dev
+            - POSTGRES_PASSWORD=dev123
+        hostname: postgres
+        mem_limit: 1G
+
+networks:
+    comp_default:
+        external: true
