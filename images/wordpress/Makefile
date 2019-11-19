@@ -1,7 +1,7 @@
 PRIVATE_REGISTRY_URL=ro.lan:5000
 
 DOCKER_IMAGE=cuongtransc/wordpress
-VERSION=4.8
+VERSION=5.3
 
 all: build
 

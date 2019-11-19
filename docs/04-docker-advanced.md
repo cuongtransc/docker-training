@@ -20,7 +20,7 @@ docker run -it --rm \
 
 
 
-docker run -it --rm wordpress:4.8 bash
+docker run -it --rm wordpress:5.3 bash
 
 docker run -it --rm \
     -v `pwd`/data:/var/www/html/ \

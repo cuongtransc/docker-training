@@ -40,7 +40,7 @@ services:
 
     wordpress:
         << : *default
-        image: wordpress:4.6
+        image: wordpress:5.3
         depends_on:
             - mariadb
         environment:
